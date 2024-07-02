@@ -15,9 +15,24 @@ type DataContextType = {
     data: Sell[] | null;
     loading: boolean;
     error: string | null;
+    initialDate: string;
+    finalDate: string;
+    setInitialDate: React.Dispatch<React.SetStateAction<string>>;
+    setFinalDate: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const BASE_URL = "https://data.origamid.dev/vendas/";
+
+function getDate(n: number) {
+    const date = new Date();
+    date.setDate(date.getDate() - n);
+
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
+
+    return `${yyyy}-${mm}-${dd}`
+}
 
 const DataContext = React.createContext<DataContextType | null>(null);
 
@@ -28,9 +43,21 @@ export const useData = () => {
 };
 
 export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
-    const { data, loading, error } = useFetch<Sell[]>(BASE_URL);
+    const [initialDate, setInitialDate] = React.useState(getDate(14));
+    const [finalDate, setFinalDate] = React.useState(getDate(0));
+
+    const { data, loading, error } = useFetch<Sell[]>(`${BASE_URL}?inicio=${initialDate}&final=${finalDate}`);
+    
     return (
-        <DataContext.Provider value={{ data, loading, error }}>
+        <DataContext.Provider value={{ 
+            data, 
+            loading, 
+            error, 
+            initialDate, 
+            setInitialDate, 
+            finalDate, 
+            setFinalDate 
+        }}>
             {children}
         </DataContext.Provider>
     );
