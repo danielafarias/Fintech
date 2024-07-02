@@ -1,7 +1,12 @@
 import React from 'react'
+import { useData } from '../Context/DataContext';
 
 export const Resume = () => {
-  return (
-    <div>Resume</div>
-  )
+    const { data } = useData();
+
+    console.log(data);
+    
+    return (
+        <div>Resume</div>
+    )
 }

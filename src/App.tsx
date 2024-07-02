@@ -1,18 +1,21 @@
 import { Header } from './Components/Header'
 import { Sidebar } from './Components/Sidebar'
+import { DataContextProvider } from './Context/DataContext'
 import { Resume } from './Pages/Resume'
 import './style.css'
 
 function App() {
 
   return (
-    <div>
+    <DataContextProvider>
+      <div>
         <Sidebar />
         <main>
           <Header />
           <Resume/>
         </main>
-    </div>
+      </div>
+    </DataContextProvider>
   )
 }
 

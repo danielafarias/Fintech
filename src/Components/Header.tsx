@@ -1,7 +1,12 @@
 import React from 'react'
+import { useData } from '../Context/DataContext'
 
 export const Header = () => {
-  return (
-    <div>Header</div>
-  )
+    const { data } = useData();
+
+    console.log(data);
+    
+    return (
+        <div>Header</div>
+    )
 }
