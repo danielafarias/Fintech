@@ -5,7 +5,7 @@ export const DateRange = () => {
     const [initialDate, setInitialDate] = React.useState("");
     const [finalDate, setFinalDate] = React.useState("");
     return (
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form className="box flex" onSubmit={(e) => e.preventDefault()}>
             <DateInput 
                 id="initialDate" 
                 label="Início"
