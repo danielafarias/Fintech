@@ -21,7 +21,7 @@ type DataContextType = {
     setFinalDate: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const BASE_URL = "https://data.origamid.dev/vendas/";
+export const BASE_URL = "https://data.origamid.dev/vendas/";
 
 function getDate(n: number) {
     const date = new Date();

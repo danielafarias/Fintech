@@ -4,8 +4,8 @@ import { Sidebar } from './Components/Sidebar'
 import { DataContextProvider } from './Context/DataContext'
 import { Resume } from './Pages/Resume'
 import './style.css'
-import { Sells } from './Components/Sells'
-import { Sell } from './Components/Sell'
+import { Sells } from './Pages/Sells'
+import { Sell } from './Pages/Sell'
 
 function App() {
 
