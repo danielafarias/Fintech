@@ -92,3 +92,22 @@ ul {
     margin-bottom: var(--gap);
     color: var(--color-1);
 }
+
+/* SELL */
+
+.sell {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: var(--gap);
+    margin-bottom: var(--gap-s);
+    align-items: center;
+}
+
+.sell div:last-child {
+    justify-self: end;
+}
+
+.sell a {
+    text-decoration: none;
+    color: inherit;
+}
