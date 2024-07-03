@@ -1,7 +1,7 @@
 import React from "react";
 import useFetch from "../Hooks/useFetch";
 
-type Sell =  {
+export type Sell =  {
     id: string;
     nome: string;
     preco: number;
