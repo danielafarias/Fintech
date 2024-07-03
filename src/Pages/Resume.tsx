@@ -1,5 +1,6 @@
 import React from 'react'
 import { Sell, useData } from '../Context/DataContext';
+import { SellGraph } from '../Components/SellGraph';
 
 const sumAll = (data: Sell[]) => data.reduce((acc, item) => acc + item.preco, 0);
 export const formatValue = (value: number) => value.toLocaleString("pt-BR", { style: "currency", currency: "BRL"});
@@ -38,7 +39,7 @@ export const Resume = () => {
                 </div>
             </div>
             <div className="box">
-                Gráficos
+                <SellGraph data={data} />
             </div>
         </section>
     )
